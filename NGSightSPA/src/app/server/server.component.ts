@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Server } from '../models/Server';
 
 @Component({
   selector: 'app-server',
@@ -9,9 +10,28 @@ export class ServerComponent implements OnInit {
 
   constructor() { }
 
-  @Input() serverInput
+  color:string
+  buttonText: string
+
+  @Input() serverInput: Server
 
   ngOnInit(): void {
+    this.setServerStatus(this.serverInput.isOnline)
   }
 
+  setServerStatus(isOnline:boolean) {
+    if(isOnline) {
+      this.serverInput.isOnline = true
+      this.color = '#66bb6a'
+      this.buttonText = 'Shut Down'
+    } else {
+      this.serverInput.isOnline = false
+      this.color = '#ff6b6b'
+      this.buttonText = 'Start'
+    }
+  }
+
+  toggleStatus() {
+    this.setServerStatus(!this.serverInput.isOnline)
+  }
 }
