@@ -61,3 +61,11 @@ export const ACTIVE_PASSIVE_CUSTOMERS = {
     data:[126,482],
     labels:["Active","Passive"]
 }
+
+export const SERVERS = [
+    {id: 1, name: 'dev-web', isOnline: true},
+    {id: 2, name: 'dev-mail', isOnline: false},
+    {id: 3, name: 'dev-web', isOnline: true},
+    {id: 4, name: 'dev-mail', isOnline: true},
+
+]

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Scooter, ScooterJson } from '../models/Scooter';
+import { Server } from '../models/Server';
 import getAllScooters from '../sample-data/getAllScooters.json';
 
 import { 
@@ -10,7 +11,8 @@ import {
   SAMPLE_SCOOTER_STATUS,
   MONTHLY_RENTS,
   MONTHLY_RENTS_DURATION,
-  ACTIVE_PASSIVE_CUSTOMERS
+  ACTIVE_PASSIVE_CUSTOMERS,
+  SERVERS
 
 } from '../sample-data/sampleData';
 
@@ -20,6 +22,10 @@ import {
 export class DataService {
 
   constructor() { }
+
+  getServers():Observable<Server[]> {
+    return of(SERVERS)
+  }
 
   getBarChartData(): Observable<any> {
     return of({ data: SAMPLE_BARCHART_DATA, labels: SAMPLE_BARCHART_LABELS })

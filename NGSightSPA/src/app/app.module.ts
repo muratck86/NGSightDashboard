@@ -24,6 +24,7 @@ import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.c
 import { LineRentDurationComponent } from './charts/line-rent-duration/line-rent-duration.component';
 import { CustomerStatusRateComponent } from './charts/customer-status-rate/customer-status-rate.component';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { ServerComponent } from './server/server.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     LineChartComponent,
     DoughnutChartComponent,
     LineRentDurationComponent,
-    CustomerStatusRateComponent
+    CustomerStatusRateComponent,
+    ServerComponent
   ],
   imports: [
     BrowserModule,
