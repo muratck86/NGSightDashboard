@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-line-chart',
-  templateUrl: './line-chart.component.html',
-  styleUrls: ['./line-chart.component.css']
+  selector: 'app-line-rent-duration',
+  templateUrl: './line-rent-duration.component.html',
+  styleUrls: ['./line-rent-duration.component.scss']
 })
-export class LineChartComponent implements OnInit {
+export class LineRentDurationComponent implements OnInit {
 
-  monthlyRentData: any[] = []
+  monthlyRentDurationData: any[] = []
   chartLabels: any[] = []
   chartOptions: any = {}
   chartLegend = true
@@ -18,8 +18,8 @@ export class LineChartComponent implements OnInit {
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
-    this.dataService.getMonthlyRents().subscribe(d => {
-      this.monthlyRentData = d.dataset
+    this.dataService.getMonthlyRentDurations().subscribe(d => {
+      this.monthlyRentDurationData = d.dataset
       this.chartLabels = d.labels
       this.chartColors = d.colors
     })

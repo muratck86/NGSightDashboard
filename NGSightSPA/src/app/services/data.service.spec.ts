@@ -6,11 +6,11 @@ import { DataService } from './data.service';
 describe('Service: Dataservice', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [DataserviceService]
+      providers: [DataService]
     });
   });
 
-  it('should ...', inject([DataserviceService], (service: DataserviceService) => {
+  it('should ...', inject([DataService], (service: DataService) => {
     expect(service).toBeTruthy();
   }));
 });
