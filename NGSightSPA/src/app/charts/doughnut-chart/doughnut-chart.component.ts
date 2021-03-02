@@ -2,18 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
-  selector: 'app-pie-chart',
-  templateUrl: './pie-chart.component.html',
-  styleUrls: ['./pie-chart.component.css']
+  selector: 'app-doughnut-chart',
+  templateUrl: './doughnut-chart.component.html',
+  styleUrls: ['./doughnut-chart.component.css']
 })
-export class PieChartComponent implements OnInit {
+export class DoughnutChartComponent implements OnInit {
 
   constructor(private dataService:DataService) { }
 
   pieChartData:number[]=[]
-  colors= [{backgroundColor: ['#26547c', '#ff6b6b', '#ffd166']}]
+  colors= [{backgroundColor: ['#20647c', '#fa6b8b', '#ff3126']}]
   pieChartLabels:string[]
-  pieChartType = "pie"
+  pieChartType = "doughnut"
 
   ngOnInit(): void {
     this.dataService.getPieChartData().subscribe(d => {

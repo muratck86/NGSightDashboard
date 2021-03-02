@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { SAMPLE_BARCHART_DATA } from 'src/app/sample-data/sampleData';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -11,8 +10,8 @@ export class BarChartComponent implements OnInit {
 
   constructor(private dataService:DataService) { }
 
-  public barChartData:any[] = this.dataService.getBarChartData().data
-  public barChartLabels:string[] = this.dataService.getBarChartData().labels
+  public barChartData:any[]
+  public barChartLabels:string[]
   public barChartType="bar"
   public barChartLegend = true
   public barChartOptions = {
@@ -21,6 +20,10 @@ export class BarChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dataService.getBarChartData().subscribe(d => {
+      this.barChartData = d.data
+      this.barChartLabels = d.labels
+    })
   }
 
 }
