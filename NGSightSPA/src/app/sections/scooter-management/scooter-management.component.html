@@ -1,1 +1,38 @@
-<p>scooter-management works!</p>
+<div class="section-container">
+    <h2>
+        Scooter List
+    </h2>
+    <table class="table table-inverse table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Seri No</th>
+                <th>IoT IMEI No</th>
+                <th>Marka</th>
+                <th>Model</th>
+                <th>Pil Durumu</th>
+                <th>Scooter Durumu</th>
+                <th>Konumu</th>
+                <th>İşlemler</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let scooter of scooters">
+                <td>{{scooter.id}}</td>
+                <td>{{scooter.scooterBarcode}}</td>
+                <td>{{scooter.scooterImei}}</td>
+                <td>{{scooter.scooterName}}</td>
+                <td>{{scooter.scooterDescription}}</td>
+                <td>{{scooter.scooterBatteryStatus}}</td>
+                <td>{{scooter.scooterRate}}</td>
+                <td>{{scooter.scooterCurrentPositionX}},{{scooter.scooterCurrentPositionY}}</td>
+                <td>
+                    <select>
+                        <option *ngFor="let operation of scooterOperations" >{{operation}}</option>
+                    </select>
+                    <button>Gönder</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
