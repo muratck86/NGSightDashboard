@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import { Scooter, ScooterJson } from '../models/Scooter';
+import getAllScooters from '../sample-data/getAllScooters.json';
 
 import { 
   SAMPLE_PIE_CHART,
@@ -40,5 +42,29 @@ export class DataService {
 
   getCustomerStatusRates():Observable<any> {
     return of(ACTIVE_PASSIVE_CUSTOMERS)
+  }
+
+  getAllScooters(): Observable<Scooter[]> {
+    let scooters: Scooter[] = []
+    for (let jsonScooter of getAllScooters.data) {
+      scooters.push(this.createScooter(jsonScooter))
+    }
+    return of(scooters)
+  }
+
+  private createScooter(jsonScooter:ScooterJson):Scooter {
+    let scooter = {
+      id : jsonScooter.id,
+      scooterName : jsonScooter.scooterName,
+      scooterBarcode : jsonScooter.scooterBarcode,
+      scooterDescription : jsonScooter.scooterDescription,
+      scooterRate : jsonScooter.scooterRate,
+      scooterImei : jsonScooter.scooterImei,
+      scooterGsmNumber : jsonScooter.scooterGsmNumber,
+      scooterCurrentPositionX : +jsonScooter.scooterCurrentPositionX,
+      scooterCurrentPositionY : +jsonScooter.scooterCurrentPositionY,
+      scooterBatteryStatus : +jsonScooter.scooterBatteryStatus,
+    }
+    return scooter
   }
 }

@@ -23,6 +23,7 @@ import { ChartsModule } from 'ng2-charts';
 import { DoughnutChartComponent } from './charts/doughnut-chart/doughnut-chart.component';
 import { LineRentDurationComponent } from './charts/line-rent-duration/line-rent-duration.component';
 import { CustomerStatusRateComponent } from './charts/customer-status-rate/customer-status-rate.component';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { CustomerStatusRateComponent } from './charts/customer-status-rate/custo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ChartsModule
+    ChartsModule,
+    GoogleMapsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

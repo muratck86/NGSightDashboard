@@ -1,1 +1,19 @@
-<p>terrain works!</p>
+
+<google-map
+height="85vh"
+width = "100%"
+[zoom]= "zoom"
+[center]="center"
+>
+<map-marker *ngFor="let marker of markers"
+[position] = "marker.position"
+[label]="marker.label"
+[title]="marker.title"
+[options]="marker.options"
+></map-marker>
+
+</google-map>
+
+<!-- <ul>
+    <li *ngFor="let scooter of scooters">Name: {{scooter.scooterName}} / X: {{scooter.scooterCurrentPositionX}} / Y: {{scooter.scooterCurrentPositionY}}</li>
+</ul> -->

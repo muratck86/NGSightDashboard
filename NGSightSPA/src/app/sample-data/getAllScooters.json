@@ -1,0 +1,129 @@
+{
+  "pageNumber": 1,
+  "pageSize": 10,
+  "succeeded": true,
+  "message": null,
+  "errors": null,
+  "data": [
+    {
+      "id": 1,
+      "scooterName": "Scooter1",
+      "scooterBarcode": "SM071100",
+      "scooterDescription": "Scooter 2 Description",
+      "scooterRate": 70,
+      "scooterImei": "015515352484955494950495652565450",
+      "scooterGsmNumber": "905220000002",
+      "scooterCurrentPositionX": "36.8950154",
+      "scooterCurrentPositionY": "30.6441802",
+      "scooterBatteryStatus": "88"
+    },
+    {
+      "id": 2,
+      "scooterName": "Scooter2",
+      "scooterBarcode": "SM071099",
+      "scooterDescription": "Scooter 1 Description",
+      "scooterRate": 60,
+      "scooterImei": "015515357545151494853485056495552",
+      "scooterGsmNumber": "9053332123453",
+      "scooterCurrentPositionX": "36.8615900",
+      "scooterCurrentPositionY": "30.6245040",
+      "scooterBatteryStatus": "62"
+    },
+    {
+      "id": 3,
+      "scooterName": "Scooter3",
+      "scooterBarcode": "SM071100",
+      "scooterDescription": "Scooter 2 Description",
+      "scooterRate": 70,
+      "scooterImei": "015515352484955494950495652565450",
+      "scooterGsmNumber": "905220000002",
+      "scooterCurrentPositionX": "36.8615900",
+      "scooterCurrentPositionY": "30.7645040",
+      "scooterBatteryStatus": "32"
+    },
+    {
+      "id": 4,
+      "scooterName": "Scooter4",
+      "scooterBarcode": "SM071100",
+      "scooterDescription": "Scooter 2 Description",
+      "scooterRate": 70,
+      "scooterImei": "015515352484955494950495652565450",
+      "scooterGsmNumber": "905220000002",
+      "scooterCurrentPositionX": "36.9015900",
+      "scooterCurrentPositionY": "30.6245040",
+      "scooterBatteryStatus": "12"
+    },
+    {
+      "id": 5,
+      "scooterName": "Scooter5",
+      "scooterBarcode": "SM071100",
+      "scooterDescription": "Scooter 2 Description",
+      "scooterRate": 70,
+      "scooterImei": "015515352484955494950495652565450",
+      "scooterGsmNumber": "905220000002",
+      "scooterCurrentPositionX": "36.9215900",
+      "scooterCurrentPositionY": "30.6045040",
+      "scooterBatteryStatus": "42"
+    },
+    {
+      "id": 6,
+      "scooterName": "Scooter6",
+      "scooterBarcode": "SM071100",
+      "scooterDescription": "Scooter 2 Description",
+      "scooterRate": 70,
+      "scooterImei": "015515352484955494950495652565450",
+      "scooterGsmNumber": "905220000002",
+      "scooterCurrentPositionX": "36.8965900",
+      "scooterCurrentPositionY": "30.5975040",
+      "scooterBatteryStatus": "72"
+    },
+    {
+      "id": 7,
+      "scooterName": "Scooter7",
+      "scooterBarcode": "SM071100",
+      "scooterDescription": "Scooter 2 Description",
+      "scooterRate": 70,
+      "scooterImei": "015515352484955494950495652565450",
+      "scooterGsmNumber": "905220000002",
+      "scooterCurrentPositionX": "36.8715900",
+      "scooterCurrentPositionY": "30.7355040",
+      "scooterBatteryStatus": "62"
+    },
+    {
+      "id": 8,
+      "scooterName": "Scooter8",
+      "scooterBarcode": "SM071100",
+      "scooterDescription": "Scooter 2 Description",
+      "scooterRate": 70,
+      "scooterImei": "015515352484955494950495652565450",
+      "scooterGsmNumber": "905220000002",
+      "scooterCurrentPositionX": "36.89965900",
+      "scooterCurrentPositionY": "30.7555040",
+      "scooterBatteryStatus": "33"
+    },
+    {
+      "id": 9,
+      "scooterName": "Scooter9",
+      "scooterBarcode": "SM071100",
+      "scooterDescription": "Scooter 2 Description",
+      "scooterRate": 70,
+      "scooterImei": "015515352484955494950495652565450",
+      "scooterGsmNumber": "905220000002",
+      "scooterCurrentPositionX": "36.9115900",
+      "scooterCurrentPositionY": "30.6955040",
+      "scooterBatteryStatus": "25"
+    },
+    {
+      "id": 10,
+      "scooterName": "Scooter10",
+      "scooterBarcode": "SM071100",
+      "scooterDescription": "Scooter 2 Description",
+      "scooterRate": 70,
+      "scooterImei": "015515352484955494950495652565450",
+      "scooterGsmNumber": "905220000002",
+      "scooterCurrentPositionX": "36.8485900",
+      "scooterCurrentPositionY": "30.7605040",
+      "scooterBatteryStatus": "66"
+    }
+  ]
+}
