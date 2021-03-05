@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "d:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\NGSightAPI.csproj": {}
+    "D:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\NGSightAPI.csproj": {}
   },
   "projects": {
-    "d:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\NGSightAPI.csproj": {
+    "D:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\NGSightAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\NGSightAPI.csproj",
+        "projectUniqueName": "D:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\NGSightAPI.csproj",
         "projectName": "NGSightAPI",
-        "projectPath": "d:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\NGSightAPI.csproj",
+        "projectPath": "D:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\NGSightAPI.csproj",
         "packagesPath": "C:\\Users\\kurtm\\.nuget\\packages\\",
-        "outputPath": "d:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\obj\\",
+        "outputPath": "D:\\SoftwareProjects\\NgSightDashboard\\NGSightAPI\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\kurtm\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -44,6 +48,18 @@
               "target": "Package",
               "version": "[5.0.3, )"
             },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[5.0.3, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[5.6.3, )"
@@ -67,7 +83,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

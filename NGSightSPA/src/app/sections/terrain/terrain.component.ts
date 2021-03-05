@@ -14,7 +14,6 @@ export class TerrainComponent implements OnInit {
   markers = []
   scooters: Scooter[] = []
   mapTypeId= "terrain"
-  icon = "../../../assets/images/electric_scooter-48px.svg"
 
   constructor(private dataService: DataService) { }
 
@@ -24,8 +23,8 @@ export class TerrainComponent implements OnInit {
         lat: p.coords.latitude,
         lng: p.coords.longitude
       }
-      this.generateMarkers()
     })
+    this.generateMarkers()
     this.dataService.getAllScooters().subscribe(data => {
       this.scooters = data
     })
@@ -33,17 +32,24 @@ export class TerrainComponent implements OnInit {
 
   generateMarkers() {
     for (let scooter of this.scooters) {
-      let color:string
-      if(scooter.scooterBatteryStatus < 40) {
-        color = "green"
-      } else if (scooter.scooterBatteryStatus < 75) {
-        color = "yellow"
-      } else {
-        color = "blue"
+      let icon:string
+      if(scooter.scooterBatteryStatus < 10) {
+        icon = "../../../assets/images/scooter-empty.svg"
       }
-
-      if(scooter.scooterRate<5) {
-        color = "red"
+      else if(scooter.scooterBatteryStatus < 20) {
+        icon = "../../../assets/images/scooter-critic.svg"
+      } 
+      else if (scooter.scooterBatteryStatus < 35) {
+        icon = "../../../assets/images/scooter-quarter.svg"
+      } 
+      else if(scooter.scooterBatteryStatus < 60) {
+        icon = "../../../assets/images/scooter-half.svg"
+      }
+      else if(scooter.scooterBatteryStatus < 85) {
+        icon = "../../../assets/images/scooter-3quarters.svg"
+      } 
+      else {
+        icon = "../../../assets/images/scooter-full.svg"
       }
 
       this.markers.push(
@@ -53,14 +59,12 @@ export class TerrainComponent implements OnInit {
             lng: scooter.scooterCurrentPositionY //((Math.random() - 0.5) * 2) / 10,
           },
           label: {
-            color: color,
             text: scooter.scooterBatteryStatus + "%",
-            //img: "../../../assets/images/battery-full.svg"
           },
           title: ""+scooter.id,
           options: { 
-            //animation: google.maps.Animation.BOUNCE,
-            icon: this.icon
+            animation: google.maps.Animation.BOUNCE,
+            icon : icon
           },
         }
       )
