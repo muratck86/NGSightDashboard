@@ -63,10 +63,19 @@ namespace NGSightAPI
                 return Ok(groupedResult);
         }
 
-        [HttpGet("GetOrder/{}", Name = "GetOrder")]
+        [HttpGet("GetOrder/{id}", Name = "GetOrder")]
         public IActionResult GetOrder(int id)
         {
             var result = _context.Orders.Include(o => o.Customer).FirstOrDefault(o => o.Id == id);
+            return Ok(result);
+        }
+
+        [HttpGet("ByCustomerId/{id}")]
+        public IActionResult GetByCustomerId(int id)
+        {
+            var result = _context.Orders.Include(o => o.Customer)
+                .Where(o => o.Customer.Id == id)
+                .OrderByDescending(o => o.Placed).ToList();
             return Ok(result);
         }
     }

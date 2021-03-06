@@ -29,6 +29,13 @@ namespace NGSightAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(opt => {
+                opt.AddPolicy("CorsPolicy",
+                c => c.AllowAnyOrigin()
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                );
+            });
             _connectionString = Configuration["secretConnectionString"];
 
             services.AddControllers();
@@ -50,6 +57,7 @@ namespace NGSightAPI
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "NGSightAPI v1"));
+                app.UseCors("CorsPolicy"); // Use my CorsPolicy in development only
             }
 
 
