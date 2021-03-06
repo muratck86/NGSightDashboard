@@ -47,7 +47,7 @@ namespace NGSightAPI
 
         internal static string MakeCustomerEmail(string name)
         {
-            return $"contact@{name.ToLower()}.com";
+            return $"contact@{name.ToLower().Replace(" ","")}.com";
         }
 
         internal static string MakeState()
