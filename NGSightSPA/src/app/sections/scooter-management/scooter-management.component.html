@@ -35,4 +35,7 @@
             </tr>
         </tbody>
     </table>
+    <app-pagination
+        (goPrev)="goToPrevious()" (goNext)="goToNext()" (goPage)="goToPage($event)" [page]="page" [perPage]="limit" [count]="total">
+    </app-pagination>
 </div>

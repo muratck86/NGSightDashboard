@@ -11,7 +11,7 @@ export class TerrainComponent implements OnInit {
 
   zoom = 13
   center: google.maps.LatLngLiteral
-  markers = []
+  markers:any[] = []
   scooters: Scooter[] = []
   mapTypeId= "terrain"
 
@@ -24,10 +24,10 @@ export class TerrainComponent implements OnInit {
         lng: p.coords.longitude
       }
     })
-    this.generateMarkers()
     this.dataService.getAllScooters().subscribe(data => {
       this.scooters = data
     })
+    this.generateMarkers()
   }
 
   generateMarkers() {
@@ -63,13 +63,12 @@ export class TerrainComponent implements OnInit {
           },
           title: ""+scooter.id,
           options: { 
-            animation: google.maps.Animation.BOUNCE,
+            animation: google.maps.Animation.DROP,
             icon : icon
           },
         }
       )
     }
-
   }
 
 }

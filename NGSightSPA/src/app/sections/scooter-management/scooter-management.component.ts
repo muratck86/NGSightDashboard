@@ -11,6 +11,10 @@ export class ScooterManagementComponent implements OnInit {
 
   scooters:Scooter[]= []
   scooterOperations:string[]=["Lock", "Activate"]
+  total = 0
+  page = 2
+  limit = 6
+  loading: boolean
 
   constructor(private dataService:DataService) { }
 
@@ -19,8 +23,24 @@ export class ScooterManagementComponent implements OnInit {
   }
 
   getScooters() {
-    this.dataService.getAllScooters().subscribe(s => {
-      this.scooters = s
+    this.dataService.getScooters(this.page, this.limit).subscribe(s => {
+      this.scooters = s[0],
+      this.total = s[1],
+      this.loading = false
     })
+  }
+
+  goToPrevious(){
+    this.page--
+    this.getScooters()
+  }
+
+  goToNext(){
+    this.page++
+    this.getScooters()
+  }
+  goToPage(n:number):void {
+    this.page = n
+    this.getScooters()
   }
 }

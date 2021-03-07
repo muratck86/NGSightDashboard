@@ -58,6 +58,21 @@ export class DataService {
     return of(scooters)
   }
 
+  getScooters(page:number, limit:number):Observable<any[]> {
+    let scooterList:Scooter[]
+    this.getAllScooters().subscribe(data => {
+      scooterList = data
+    })
+    let start = (page - 1) * limit
+    let end = start + limit
+    let scooters:Scooter[]
+    let total: number
+    return of([
+      scooters= scooterList.filter(sc => scooterList.indexOf(sc) >= start && scooterList.indexOf(sc) < end),
+      total = scooterList.length
+    ])
+  }
+
   private createScooter(jsonScooter:ScooterJson):Scooter {
     let scooter = {
       id : jsonScooter.id,
