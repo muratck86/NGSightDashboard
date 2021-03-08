@@ -22,7 +22,8 @@
                     <h5>Scooter Durum</h5>
                 </div>
                 <div class="card-body">
-                    <app-doughnut-chart></app-doughnut-chart>
+                    <app-doughnut-chart *ngIf='scooterStatusData' [inputData]='scooterStatusData' [limit] = '3'>
+                    </app-doughnut-chart>
                 </div>
             </div>
             <!-- <div class="card mb-3 shadow card-theme">
@@ -38,7 +39,8 @@
                     <h5>Müşteri Durum</h5>
                 </div>
                 <div class="card-body">
-                    <app-customer-status-rate></app-customer-status-rate>
+                    <app-doughnut-chart *ngIf='customerStatusData' [inputData]='customerStatusData' [limit] = '5'>
+                    </app-doughnut-chart>
                 </div>
             </div>
             <!-- <div class="card mb-3 shadow card-theme">

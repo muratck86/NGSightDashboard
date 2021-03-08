@@ -15,6 +15,7 @@ import {
   SERVERS
 
 } from '../sample-data/sampleData';
+import { Drive } from '../models/Drive';
 
 @Injectable({
   providedIn: 'root'
@@ -25,27 +26,38 @@ export class DataService {
 
   constructor(private http:HttpClient) { }
 
+
+  getDrivesData(pageNo:number, pageSize:number): Observable<Drive[]> {
+    return this.http.get<Drive[]>(this.apiUrl+"/order/"+pageNo+"/"+pageSize)
+  }
+
+  getAllScooters(): Observable<Scooter[]> {
+    return this.http.get<Scooter[]>(this.apiUrl + '/scooter')
+  }
+
+  getScooters(pageNo:number, limit:number):Observable<any> {
+    return this.http.get(this.apiUrl+'/scooter/'+pageNo+'/'+limit)
+  }
+
+  getOrdersByCustomer(n : number):Observable<Drive[]>{
+    return this.http.get<Drive[]>(this.apiUrl + '/order/ByCustomer/'+n)
+  }
+
+  getOrdersByState(){
+    return this.http.get(this.apiUrl + '/order/ByState/')
+  }
+
+//-----------mocks------
   getServers():Observable<Server[]> {
     return of(SERVERS)
   }
 
-  getDrivesData(pageNo:number, pageSize:number): Observable<any> {
-    return this.http.get(this.apiUrl+"/order/"+pageNo+"/"+pageSize)
-  }
-
-  getBarChartData(): Observable<any> {
-    return of({ data: SAMPLE_BARCHART_DATA, labels: SAMPLE_BARCHART_LABELS })
-  }
   getPieChartData(): Observable<any> {
     return of(SAMPLE_PIE_CHART)
   }
 
   getScooterStatus(): Observable<any> {
     return of(SAMPLE_SCOOTER_STATUS)
-  }
-
-  getMonthlyRents():Observable<any> {
-    return of(MONTHLY_RENTS)
   }
 
   getMonthlyRentDurations():Observable<any> {
@@ -56,11 +68,4 @@ export class DataService {
     return of(ACTIVE_PASSIVE_CUSTOMERS)
   }
 
-  getAllScooters(): Observable<Scooter[]> {
-    return this.http.get<Scooter[]>(this.apiUrl + '/scooter')
-  }
-
-  getScooters(pageNo:number, limit:number):Observable<any> {
-    return this.http.get(this.apiUrl+'/scooter/'+pageNo+'/'+limit)
-  }
 }

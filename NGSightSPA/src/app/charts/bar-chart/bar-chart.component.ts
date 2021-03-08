@@ -36,7 +36,7 @@ export class BarChartComponent implements OnInit {
     })
   }
 
-  getChartData(res:Response) {
+  getChartData(res) {
     this.drives = res['page']['data']
     const data = this.drives.map(d => d.total)
     const labels = this.drives.map(d =>moment(new Date(d.placed)).format('YY-MM-DD'))

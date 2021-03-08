@@ -1,6 +1,7 @@
 <div class="chart">
     <canvas baseChart
-        [datasets]="monthlyRentData"
+        *ngIf="chartData"
+        [datasets]="chartData"
         [labels]="chartLabels"
         [options]="chartOptions"
         [legend]="chartLegend"
