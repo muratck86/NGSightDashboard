@@ -12,8 +12,8 @@ export class ScooterManagementComponent implements OnInit {
   scooters:Scooter[]= []
   scooterOperations:string[]=["Lock", "Activate"]
   total = 0
-  page = 2
-  limit = 6
+  page = 1
+  limit = 10
   loading: boolean
 
   constructor(private dataService:DataService) { }
@@ -23,21 +23,26 @@ export class ScooterManagementComponent implements OnInit {
   }
 
   getScooters() {
-    this.dataService.getScooters(this.page, this.limit).subscribe(s => {
-      this.scooters = s[0],
-      this.total = s[1],
+    this.dataService.getScooters(this.page >= 1 ? this.page: 1 , this.limit).subscribe(s => {
+      this.scooters = s.page.data,
+      this.total = s.page.total,
       this.loading = false
     })
   }
 
   goToPrevious(){
-    this.page--
-    this.getScooters()
+    if(this.page > 1){
+      this.page--
+      this.getScooters()
+    }
   }
 
   goToNext(){
-    this.page++
-    this.getScooters()
+    if(this.page < Math.ceil(this.total / this.limit)){
+      this.page++
+      this.getScooters()
+    }
+    
   }
   goToPage(n:number):void {
     this.page = n

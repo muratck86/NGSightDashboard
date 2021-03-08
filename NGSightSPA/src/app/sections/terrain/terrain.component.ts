@@ -1,4 +1,6 @@
+import { Parser } from '@angular/compiler/src/ml_parser/parser';
 import { Component, OnInit } from '@angular/core';
+import { id } from '@swimlane/ngx-charts';
 import { Scooter } from 'src/app/models/Scooter';
 import { DataService } from 'src/app/services/data.service';
 
@@ -11,9 +13,9 @@ export class TerrainComponent implements OnInit {
 
   zoom = 13
   center: google.maps.LatLngLiteral
-  markers:any[] = []
+  markers: any[] = []
   scooters: Scooter[] = []
-  mapTypeId= "terrain"
+  mapTypeId = "terrain"
 
   constructor(private dataService: DataService) { }
 
@@ -26,28 +28,31 @@ export class TerrainComponent implements OnInit {
     })
     this.dataService.getAllScooters().subscribe(data => {
       this.scooters = data
+      this.generateMarkers()
     })
-    this.generateMarkers()
   }
 
   generateMarkers() {
     for (let scooter of this.scooters) {
-      let icon:string
-      if(scooter.scooterBatteryStatus < 10) {
+      let icon: string
+      let battery: number = parseInt(scooter.scooterBattery)
+      let latitude = parseFloat(scooter.scooterPositionY)
+      let longitude = parseFloat(scooter.scooterPositionX)
+      if (battery < 10) {
         icon = "../../../assets/images/scooter-empty.svg"
       }
-      else if(scooter.scooterBatteryStatus < 20) {
+      else if (battery < 20) {
         icon = "../../../assets/images/scooter-critic.svg"
-      } 
-      else if (scooter.scooterBatteryStatus < 35) {
+      }
+      else if (battery < 35) {
         icon = "../../../assets/images/scooter-quarter.svg"
-      } 
-      else if(scooter.scooterBatteryStatus < 60) {
+      }
+      else if (battery < 60) {
         icon = "../../../assets/images/scooter-half.svg"
       }
-      else if(scooter.scooterBatteryStatus < 85) {
+      else if (battery < 85) {
         icon = "../../../assets/images/scooter-3quarters.svg"
-      } 
+      }
       else {
         icon = "../../../assets/images/scooter-full.svg"
       }
@@ -55,20 +60,19 @@ export class TerrainComponent implements OnInit {
       this.markers.push(
         {
           position: {
-            lat: scooter.scooterCurrentPositionX,  //((Math.random() - 0.5) * 2) / 10,
-            lng: scooter.scooterCurrentPositionY //((Math.random() - 0.5) * 2) / 10,
+            lat: latitude,  //((Math.random() - 0.5) * 2) / 10,
+            lng: longitude //((Math.random() - 0.5) * 2) / 10,
           },
           label: {
-            text: scooter.scooterBatteryStatus + "%",
+            text: scooter.scooterBattery + "%",
           },
-          title: ""+scooter.id,
-          options: { 
+          title: "" + scooter.id,
+          options: {
             animation: google.maps.Animation.DROP,
-            icon : icon
+            icon: icon
           },
         }
       )
     }
   }
-
 }

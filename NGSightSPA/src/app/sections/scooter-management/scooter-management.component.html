@@ -11,7 +11,7 @@
                 <th>Marka</th>
                 <th>Model</th>
                 <th>Pil Durumu</th>
-                <th>Scooter Durumu</th>
+                <th>Birim Fiyat</th>
                 <th>Konumu</th>
                 <th>İşlemler</th>
             </tr>
@@ -23,9 +23,9 @@
                 <td>{{scooter.scooterImei}}</td>
                 <td>{{scooter.scooterName}}</td>
                 <td>{{scooter.scooterDescription}}</td>
-                <td>{{scooter.scooterBatteryStatus}}</td>
-                <td>{{scooter.scooterRate}}</td>
-                <td>{{scooter.scooterCurrentPositionX}},{{scooter.scooterCurrentPositionY}}</td>
+                <td>{{scooter.scooterBattery}}</td>
+                <td>{{scooter.scooterRate}}.00₺</td>
+                <td>{{scooter.scooterPositionX}},{{scooter.scooterPositionY}}</td>
                 <td>
                     <select>
                         <option *ngFor="let operation of scooterOperations" >{{operation}}</option>

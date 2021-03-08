@@ -1,0 +1,13 @@
+.pagination {
+    padding: 12 px;
+}
+
+.pages {
+    padding: 14px;
+    display: block;
+}
+
+.btn-pageNo {
+     min-width: 54px;
+     margin: 2px;
+}

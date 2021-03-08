@@ -1,9 +1,14 @@
 <div class="pages">
     <span class="page-totals">Toplam {{totalPages()}} sayfada </span>
-    <span class="page-counts">Z sonuçtan X - Y arası sonuçlar gösteriliyor.</span>
-    
-    <button class="btn btn-small btn-info" (click)="onPrev()">Previous Page</button>
-    <b>...</b>
-    <button class="btn btn-small btn-info" (click)="onNext()">Next Page</button>
+    <span class="page-counts">{{count}} sonuçtan {{getMin()}} - {{getMax()}} arası sonuçlar gösteriliyor.</span>
+
+    <div class="pagination" *ngIf="count > 0">
+        <button class="btn btn-small btn-info" (click)="onPrev()" [disabled] = "page === 1 || loading" [ngClass]="{'disabled': page ===1 || loading}">Previous Page</button>
+        <button class="btn btn-small btn-info btn-pageNo" *ngFor="let pageNo of getPages()" (click)="onPage(pageNo)"
+        [ngClass]="{'active':pageNo === page, 'disabled':loading}">{{pageNo}}</button>
+        <button class="btn btn-small btn-info" (click)="onNext()" [disabled] = "isLastPage() || loading" [ngClass]="{'disabled': isLastPage() || loading}">Next Page</button>
+    </div>
+
+
 
 </div>

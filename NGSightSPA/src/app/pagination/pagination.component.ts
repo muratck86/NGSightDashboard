@@ -40,4 +40,40 @@ export class PaginationComponent implements OnInit {
   isLastPage():boolean {
     return this.perPage * this.page >= this.count
   }
+
+  getMin():number {
+    return ((this.page * this.perPage) - this.perPage) + 1
+  }
+
+  getMax():number {
+    let max = this.page * this.perPage
+    if(max < this.count) {
+      return (this.page * this.perPage)
+    }
+    return this.count;
+  }
+
+  getPages():number[] {
+    const activePage = this.page || 1
+    const pagesToShow = this.pagesToShow || 9
+    const pages: number[] = []
+    pages.push(this.page)
+
+    for (let i = 0; i < pagesToShow -1 ; i++){
+
+      if(pages.length < pagesToShow) {
+        if(Math.min.apply(null, pages)> 1) {
+          pages.push(Math.min.apply(null, pages) - 1)
+        }
+      }
+
+      if(pages.length < pagesToShow) {
+        if(Math.max.apply(null, pages) < this.totalPages()) {
+          pages.push(Math.max.apply(null, pages) + 1)
+        }
+      }
+    }
+    pages.sort((a, b) => a - b)
+    return pages
+  }
 }

@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Scooter, ScooterJson } from '../models/Scooter';
+import { Scooter } from '../models/Scooter';
 import { Server } from '../models/Server';
-import getAllScooters from '../sample-data/getAllScooters.json';
+import { HttpClient } from '@angular/common/http'
 
 import { 
   SAMPLE_PIE_CHART,
@@ -21,10 +21,16 @@ import {
 })
 export class DataService {
 
-  constructor() { }
+  apiUrl = 'http://localhost:5000'
+
+  constructor(private http:HttpClient) { }
 
   getServers():Observable<Server[]> {
     return of(SERVERS)
+  }
+
+  getDrivesData(pageNo:number, pageSize:number): Observable<any> {
+    return this.http.get(this.apiUrl+"/order/"+pageNo+"/"+pageSize)
   }
 
   getBarChartData(): Observable<any> {
@@ -51,41 +57,10 @@ export class DataService {
   }
 
   getAllScooters(): Observable<Scooter[]> {
-    let scooters: Scooter[] = []
-    for (let jsonScooter of getAllScooters.data) {
-      scooters.push(this.createScooter(jsonScooter))
-    }
-    return of(scooters)
+    return this.http.get<Scooter[]>(this.apiUrl + '/scooter')
   }
 
-  getScooters(page:number, limit:number):Observable<any[]> {
-    let scooterList:Scooter[]
-    this.getAllScooters().subscribe(data => {
-      scooterList = data
-    })
-    let start = (page - 1) * limit
-    let end = start + limit
-    let scooters:Scooter[]
-    let total: number
-    return of([
-      scooters= scooterList.filter(sc => scooterList.indexOf(sc) >= start && scooterList.indexOf(sc) < end),
-      total = scooterList.length
-    ])
-  }
-
-  private createScooter(jsonScooter:ScooterJson):Scooter {
-    let scooter = {
-      id : jsonScooter.id,
-      scooterName : jsonScooter.scooterName,
-      scooterBarcode : jsonScooter.scooterBarcode,
-      scooterDescription : jsonScooter.scooterDescription,
-      scooterRate : jsonScooter.scooterRate,
-      scooterImei : jsonScooter.scooterImei,
-      scooterGsmNumber : jsonScooter.scooterGsmNumber,
-      scooterCurrentPositionX : +jsonScooter.scooterCurrentPositionX,
-      scooterCurrentPositionY : +jsonScooter.scooterCurrentPositionY,
-      scooterBatteryStatus : +jsonScooter.scooterBatteryStatus,
-    }
-    return scooter
+  getScooters(pageNo:number, limit:number):Observable<any> {
+    return this.http.get(this.apiUrl+'/scooter/'+pageNo+'/'+limit)
   }
 }

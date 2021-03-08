@@ -26,6 +26,7 @@ import { CustomerStatusRateComponent } from './charts/customer-status-rate/custo
 import { GoogleMapsModule } from '@angular/google-maps';
 import { ServerComponent } from './server/server.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { PaginationComponent } from './pagination/pagination.component';
     BrowserModule,
     AppRoutingModule,
     ChartsModule,
-    GoogleMapsModule
+    GoogleMapsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
