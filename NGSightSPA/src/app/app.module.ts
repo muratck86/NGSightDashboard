@@ -25,6 +25,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { ServerComponent } from './server/server.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { HttpClientModule } from '@angular/common/http';
+import { TimeComponent } from './navbar/time/time.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     LineRentDurationComponent,
     CustomerStatusRateComponent,
     ServerComponent,
-    PaginationComponent
+    PaginationComponent,
+    TimeComponent
   ],
   imports: [
     BrowserModule,

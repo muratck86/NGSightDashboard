@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { Scooter } from '../models/Scooter';
-import { Server } from '../models/Server';
 import { HttpClient } from '@angular/common/http'
+import {Constants} from '../models/constants/Constants.enum'
 
 import { 
   SAMPLE_PIE_CHART,
@@ -16,35 +16,34 @@ import {
 
 } from '../sample-data/sampleData';
 import { Drive } from '../models/Drive';
+import { Server } from '../models/Server';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  apiUrl = 'http://localhost:5000'
-
   constructor(private http:HttpClient) { }
 
 
   getDrivesData(pageNo:number, pageSize:number): Observable<Drive[]> {
-    return this.http.get<Drive[]>(this.apiUrl+"/order/"+pageNo+"/"+pageSize)
+    return this.http.get<Drive[]>(Constants.API_URL+Constants.ORDER+pageNo+"/"+pageSize)
   }
 
   getAllScooters(): Observable<Scooter[]> {
-    return this.http.get<Scooter[]>(this.apiUrl + '/scooter')
+    return this.http.get<Scooter[]>(Constants.API_URL + Constants.SCOOTER)
   }
 
   getScooters(pageNo:number, limit:number):Observable<any> {
-    return this.http.get(this.apiUrl+'/scooter/'+pageNo+'/'+limit)
+    return this.http.get(Constants.API_URL+Constants.SCOOTER+pageNo+'/'+limit)
   }
 
   getOrdersByCustomer(n : number):Observable<Drive[]>{
-    return this.http.get<Drive[]>(this.apiUrl + '/order/ByCustomer/'+n)
+    return this.http.get<Drive[]>(Constants.API_URL + Constants.ORDER+'ByCustomer/'+n)
   }
 
   getOrdersByState(){
-    return this.http.get(this.apiUrl + '/order/ByState/')
+    return this.http.get(Constants.API_URL + Constants.ORDER+'ByState/')
   }
 
 //-----------mocks------
